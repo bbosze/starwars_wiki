@@ -6,6 +6,8 @@ const useStyles = createUseStyles((theme) => ({
     height: '100%',
     background: theme.color.nero,
     color: theme.color.white,
+    fontFamily: 'Coustard',
+    fontSize: 16,
   },
 }));
 
