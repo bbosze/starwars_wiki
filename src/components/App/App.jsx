@@ -1,24 +1,21 @@
 import React from 'react';
-import { createUseStyles } from 'react-jss';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Layout from './Layout';
+import HomePage from '../HomePage/HomePage';
+import SpeciePage from '../SpeciePage/SpeciePage';
+import CharacterPage from '../CharacterPage/CharacterPage';
 
-const useStyles = createUseStyles((theme) => ({
-  app: {
-    height: '100%',
-    background: theme.color.nero,
-    color: theme.color.white,
-    fontFamily: 'Coustard',
-    fontSize: 16,
-  },
-}));
-
-function App() {
-  const classes = useStyles();
+export default function App() {
 
   return (
-    <div className={classes.app}>
-      Never tell me the odds.
-    </div>
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/specie" component={SpeciePage} />
+          <Route path="/character" component={CharacterPage} />
+        </Switch>
+      </Layout>
+    </Router>
   );
 }
-
-export default App;
