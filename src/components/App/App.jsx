@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import HomePage from 'Components/HomePage/HomePage';
+import SpeciePage from 'Components/SpeciePage/SpeciePage';
+import CharacterPage from 'Components/CharacterPage/CharacterPage';
 import Layout from './Layout';
-import HomePage from '../HomePage/HomePage';
-import SpeciePage from '../SpeciePage/SpeciePage';
-import CharacterPage from '../CharacterPage/CharacterPage';
 
 export default function App() {
 

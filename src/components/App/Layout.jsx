@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../Header/Header';
 import { createUseStyles } from 'react-jss';
+import Header from 'Components/Header/Header';
 
 const useStyles = createUseStyles((theme) => ({
   layout: {
