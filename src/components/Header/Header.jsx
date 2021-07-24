@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { createUseStyles } from 'react-jss';
 import { PAGE_TITLES } from '../../consts/constants';
+import { ReactComponent as Logo } from '../../img/logo.svg';
 
 const useStyles = createUseStyles((theme) => ({
   headerContainer: {
@@ -37,6 +38,7 @@ export default function Header() {
           {name}
         </span>
       </div>
+      <Logo />
       <Link to="/">return</Link>
     </div>
   );
