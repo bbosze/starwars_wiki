@@ -327,6 +327,9 @@ module.exports = function (webpackEnv) {
       alias: {
         Components: path.resolve(__dirname, '../src/components/'),
         Consts: path.resolve(__dirname, '../src/consts/'),
+        Api: path.resolve(__dirname, '../src/api/'),
+        Img: path.resolve(__dirname, '../src/img/'),
+        Utils: path.resolve(__dirname, '../src/utils/'),
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',

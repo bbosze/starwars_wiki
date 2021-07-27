@@ -8,24 +8,41 @@ const useStyles = createUseStyles((theme) => ({
   headerContainer: {
     display: 'flex',
     alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'space-between',
-    height: 50,
+    minHeight: 50,
     padding: 30,
+    background: theme.color.nero,
     borderBottom: `1px solid ${theme.color.white}`,
-  },
-  titleContainer: {
-    width: 200,
+    '@media (min-width: 600px)': {
+      flexDirection: 'row',
+    },
   },
   logoContainer: {
+    marginBottom: 10,
     '& svg': {
       width: 100,
+      height: 'auto',
       fill: theme.color.facded,
+    },
+    '@media (min-width: 600px)': {
+      marginBottom: 0,
+    },
+  },
+  titleContainer: {
+    marginBottom: 10,
+    '@media (min-width: 600px)': {
+      marginBottom: 0,
     },
   },
   titleType: {
-    marginRight: 5,
+    marginRight: 10,
+  },
+  titleName: {
+    color: theme.color.facded,
   },
   backButton: {
+    marginRight: 15,
     '& a': {
       textDecoration: 'none',
       color: theme.color.white,
@@ -33,12 +50,11 @@ const useStyles = createUseStyles((theme) => ({
   },
 }));
 
-export default function Header() {
+const Header = () => {
   const classes = useStyles();
   const location = useLocation();
   const [title, setTitle] = useState(location?.pathname?.split('/')[1]);
   const [name, setName] = useState(location?.pathname?.split('/')[2]);
-  console.log(location?.pathname?.split('/')[1]);
 
   useEffect(() => {
     setTitle(location?.pathname?.split('/')[1]);
@@ -47,30 +63,38 @@ export default function Header() {
 
   return (
     <div className={classes.headerContainer}>
-      <div className={classes.titleContainer}>
-        {
-          (title && name)
-            ? (
-              <>
-                <span className={classes.titleType}>
-                  {PAGE_TITLES[title]}
-                  :
-                </span>
-                <span className={classes.titleName}>
-                  {name}
-                </span>
-              </>
-            ) : (
-              'HOMEPAGE'
-            )
-        }
-      </div>
       <div className={classes.logoContainer}>
         <Logo className={classes.logo} />
       </div>
+      <div className={classes.titleContainer}>
+        {
+          title !== 'result'
+          && (
+            (title && name)
+              ? (
+                <>
+                  <span className={classes.titleType}>
+                    {PAGE_TITLES[title]}
+                    :
+                  </span>
+                  <span className={classes.titleName}>
+                    {name}
+                  </span>
+                </>
+              ) : (
+                'HOMEPAGE'
+              )
+          )
+        }
+      </div>
       <div className={classes.backButton}>
-        <Link to="/">Back to homepage</Link>
+        {
+          (title && name)
+          && <Link to="/">Back to homepage</Link>
+        }
       </div>
     </div>
   );
-}
+};
+
+export default Header;

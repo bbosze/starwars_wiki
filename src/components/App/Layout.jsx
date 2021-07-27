@@ -11,21 +11,27 @@ const useStyles = createUseStyles((theme) => ({
     fontFamily: 'Coustard',
     fontSize: 16,
   },
+  content: {
+    minHeght: '100%',
+    background: theme.color.nero,
+  },
 }));
 
-export default function Layout({ children }) {
+const Layout = ({ children }) => {
   const classes = useStyles();
 
   return (
     <div className={classes.layout}>
       <Header />
-      <div className="content">
+      <div className={classes.content}>
         {children}
       </div>
     </div>
   );
-}
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
 };
+
+export default Layout;
